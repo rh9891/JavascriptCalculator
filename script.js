@@ -1,12 +1,14 @@
 // Calculator class constructor that will take all of the inputs for the calculator as well as all of the functions.
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
-        this.previousOperandTextElement = previousOperandTextElement
-        this.currentOperandTextElement = currentOperandTextElement
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
     }
     // Function to clear out the different variables on the calculator screen.
     clear() {
-
+        this.currentOperand = "";
+        this.previousOperand = "";
+        this.operation = undefined;
     }
     // Function for removing a single number/symbol on the calculator screen.
     delete() {
@@ -14,7 +16,7 @@ class Calculator {
     }
     // Function to be initiated each time that a user clicks on a number to be added to the calculator screen.
     appendNumber(number) {
-
+        this.currentOperand = number;
     }
     // Function for when a user clicks on an operation symbol.
     chooseOperation(operation) {
@@ -26,7 +28,7 @@ class Calculator {
     }
     // Function that updates the value of what is displayed in the output.
     updateDisplay() {
-        
+        this.currentOperandTextElement.innerText = this.currentOperand;
     }
 }
 
@@ -38,4 +40,13 @@ const deleteButton = document.querySelector("[data-delete]");
 const allClearButton = document.querySelector("[data-allClear]");
 const previousOperandTextElement = document.querySelector("[data-previousOperand]");
 const currentOperandTextElement = document.querySelector("[data-currentOperand]");
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+numberButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+    })
+})
 
