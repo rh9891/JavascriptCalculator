@@ -3,6 +3,7 @@ class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
+        this.clear();
     }
     // Function to clear out the different variables on the calculator screen.
     clear() {
@@ -16,7 +17,8 @@ class Calculator {
     }
     // Function to be initiated each time that a user clicks on a number to be added to the calculator screen.
     appendNumber(number) {
-        this.currentOperand = number;
+        if (number === "." && this.currentOperand.includes(".")) return
+        this.currentOperand = this.currentOperand.toString() + number.toString();
     }
     // Function for when a user clicks on an operation symbol.
     chooseOperation(operation) {
@@ -35,7 +37,7 @@ class Calculator {
 // Constants.
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
-const equalButton = document.querySelector("[data-equals]");
+const equalsButton = document.querySelector("[data-equals]");
 const deleteButton = document.querySelector("[data-delete]");
 const allClearButton = document.querySelector("[data-allClear]");
 const previousOperandTextElement = document.querySelector("[data-previousOperand]");
@@ -47,6 +49,6 @@ numberButtons.forEach(button => {
     button.addEventListener("click", () => {
         calculator.appendNumber(button.innerText);
         calculator.updateDisplay();
-    })
-})
+    });
+});
 
