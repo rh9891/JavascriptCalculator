@@ -13,7 +13,7 @@ class Calculator {
     }
     // Function for removing a single number/symbol on the calculator screen.
     delete() {
-
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
     }
     // Function to be initiated each time that a user clicks on a number to be added to the calculator screen.
     appendNumber(number) {
@@ -95,5 +95,10 @@ equalsButton.addEventListener("click", button => {
 
 allClearButton.addEventListener("click", button => {
     calculator.clear();
+    calculator.updateDisplay();
+});
+
+deleteButton.addEventListener("click", button => {
+    calculator.delete();
     calculator.updateDisplay();
 });
