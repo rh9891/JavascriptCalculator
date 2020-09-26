@@ -22,6 +22,10 @@ class Calculator {
     }
     // Function for when a user clicks on an operation symbol.
     chooseOperation(operation) {
+        if (this.currentOperand === "") return
+        if (this.previousOperand !== "") {
+            this.compute();
+        }
         this.operation = operation;
         this.previousOperand = this.currentOperand;
         this.currentOperand = "";
