@@ -32,7 +32,29 @@ class Calculator {
     }
     // Function that takes the value of what is being displayed on the calculator and computes a single value.
     compute() {
-
+        let computation;
+        const previous = parseFloat(this.previousOperand);
+        const current = parseFloat(this.currentOperand);
+        if (isNaN(previous) || isNaN(current)) return
+        switch (this.operation) {
+            case "+" :
+                computation = previous + current;
+                break;
+            case "-" :
+                computation = previous - current;
+                break;
+            case "*" :
+                computation = previous * current;
+                break;
+            case "÷" :
+                computation = previous / current;
+                break;
+            default:
+                return;
+        }
+        this.currentOperand = computation;
+        this.operation = undefined;
+        this.previousOperand = "";
     }
     // Function that updates the value of what is displayed in the output.
     updateDisplay() {
