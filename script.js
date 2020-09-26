@@ -33,6 +33,7 @@ class Calculator {
     // Function that updates the value of what is displayed in the output.
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand;
+        this.previousOperandTextElement.innerText = this.previousOperand;
     }
 }
 
