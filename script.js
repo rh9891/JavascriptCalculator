@@ -22,7 +22,9 @@ class Calculator {
     }
     // Function for when a user clicks on an operation symbol.
     chooseOperation(operation) {
-
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = "";
     }
     // Function that takes the value of what is being displayed on the calculator and computes a single value.
     compute() {
@@ -52,3 +54,9 @@ numberButtons.forEach(button => {
     });
 });
 
+operationButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        calculator.chooseOperation(button.innerText);
+        calculator.updateDisplay();
+    });
+});
