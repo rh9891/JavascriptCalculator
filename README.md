@@ -40,11 +40,11 @@ The following animation demonstrates the application functionality:
   <img src="assets/videos/javascriptCalculatorFunctionalityPreview.gif">
 </p>
 
-To download the above video file of the application functionality, you may do so [here]().
+To download the above video file of the application functionality, you may do so [here](https://github.com/rh9891/JavascriptCalculator/blob/master/assets/videos/javascriptCalculatorFunctionalityPreview.mp4).
 
 ## Links
-- [Deployed Application](https://javascript-calculator-app.herokuapp.com/)
-- [Github Repository](https://github.com/rh9891/JavascriptQuiz)
+- [Deployed Application](https://rh9891.github.io/JavascriptCalculator/)
+- [Github Repository](https://github.com/rh9891/JavascriptCalculator)
 
 ## License
 
